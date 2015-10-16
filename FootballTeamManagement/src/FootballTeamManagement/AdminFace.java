@@ -11,10 +11,7 @@ import net.proteanit.sql.DbUtils;
  *
  * @author jayakrishnan
  */
-public class AdminFace extends javax.swing.JFrame {
-    AddTeam AddT=new AddTeam();
-    AddPlayer AddP=new AddPlayer();
-    AddSponsor AddS=new AddSponsor();
+public class AdminFace extends javax.swing.JFrame { 
 
  /**
      * Creates new form AdminFace
@@ -284,27 +281,23 @@ public class AdminFace extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here: 
-         if(!AddS.isVisible()){
-           AddS.setVisible(true);
-           
-         }
+         
+   new AddSponsor().setVisible(true);
 
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-       if(!AddP.isVisible()){
-           AddP.setVisible(true);
-         }
+      
+   new AddPlayer().setVisible(true);
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-          if(!AddT.isVisible()){
-           AddT.setVisible(true);
-         }
+         
+   new AddTeam().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
