@@ -8,6 +8,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet; 
+import java.sql.SQLException;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -24,6 +25,7 @@ import javax.swing.table.TableCellRenderer;
 
 public class UserFace extends javax.swing.JFrame {
 
+       dbhandler db =new dbhandler();
     /**
      * Creates new form UserFace
      */
@@ -140,7 +142,7 @@ public class UserFace extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jT1);
 
-        jb.setText("jButton3");
+        jb.setText("Refresh table");
         jb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbActionPerformed(evt);
@@ -262,7 +264,6 @@ public class UserFace extends javax.swing.JFrame {
 
     private void jbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActionPerformed
        String sql="SELECT  * FROM player";
-       dbhandler db =new dbhandler();
          try{
             int i=0;
         ResultSet r = db.st.executeQuery(sql); 
@@ -382,15 +383,26 @@ class ButtonEditor extends DefaultCellEditor {
   }
 
   public Object getCellEditorValue() {
+      String sqlupdatetransfer;
     if (isPushed) {
       // 
       // 
         
         current_row_value=getprimarykeyvalue(rowno);
-      JOptionPane.showMessageDialog(button, label + ": Ouch!"+current_row_value);//new 
+      System.out.println("label"+label);
+            if(label.toLowerCase().equals("transfer")) {
+             sqlupdatetransfer = "update player set transfer='Remove' where playerid='" + current_row_value + "'";
+        } else {
+             sqlupdatetransfer = "update player set transfer='Transfer' where playerid='" + current_row_value + "'";
+        }
+          try {
+              db.st.executeUpdate(sqlupdatetransfer);
+          } catch (SQLException ex) {
+            }
+        JOptionPane.showMessageDialog(button, label + ": Ouch!"+current_row_value);//new 
       // System.out.println(label + ": Ouch!");
 
-    }
+    } 
     isPushed = false;
     
     return new String(label);
