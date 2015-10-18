@@ -16,15 +16,16 @@ public class ManagerStart {
      */
     public static void main(String[] args) {
         // TODO code application logic here  System.out.println("Run()");
-             
-         try{ 
-                    Thread.sleep(2000); 
-                }
-                catch(Exception e)
-                { 
-                    System.out.println(e);
-                } 
-       new Login().setVisible(true);
+//             
+//         try{ 
+//                    Thread.sleep(2000); 
+//                }
+//                catch(Exception e)
+//                { 
+//                    System.out.println(e);
+//                } 
+//       new Login().setVisible(true);
+        new UserFace("a").setVisible(true);
 
     } 
 }

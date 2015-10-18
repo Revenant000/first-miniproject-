@@ -23,12 +23,11 @@ public class dbhandler {
              st=conn.createStatement();
    
         }
-        catch(Exception e)
+        catch(ClassNotFoundException | SQLException e)
         {
              System.out.println(e);
         }
-        System.out.println("dbhandler invoked");
-    }
+       }
     
     
   
