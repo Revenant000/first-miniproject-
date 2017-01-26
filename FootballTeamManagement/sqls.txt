@@ -2,16 +2,68 @@ username :scott
 password:password
 
 
-create table player(
-playerid number(20) primary key,
-playername varchar(20) unique,
-playerteam varchar(10),
-playerrating number(11,5)
+
+
+
+create table login(
+
+username varchar(20) primary key,
+password varchar(20),
+isadmin number(2)
 );
 
+insert into login values('b','b',1);
+
+insert into login values(
+'a','a',0
+);
+-----------------------------------------------------
+
+
+
+
+create table player(
+
+playerid number(20) primary key,
+
+playername varchar(20) unique,
+
+playerteam varchar(10),
+
+playerrating number(11,5),
+age number
+);
+
+
+
+insert into player values(
+1,'player1','a',5,20
+);
+----------------------------------------------------------
+
+create table team(TEAMNO NUMBER,TEAMNAME varchar(20),CURRENTBUDGET NUMBER,TOTALPLAYERS NUMBER);
+
+
+insert into team values(
+1,'a',5,1
+);
+
+
+-------------------------------------------------------------
 create table sponsor(
+
 sponsorid number(20) primary key,
+
 sponsorname varchar(20) unique,
+
 sponsorteam varchar(10),
-amounts number(38,5)
+
+amount number(38,5)
+
+);
+
+
+
+insert into sponsor values(
+1,'Sponsor1','a',5
 );
